@@ -3,6 +3,11 @@ runtime/
 .metadata
 .gradle
 bin/
+server1/
+server2/
+server3/
+locator2/
+locator1/
 target/
 build/
 tmp/
