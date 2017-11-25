@@ -15,7 +15,7 @@
 
 	<pdx>
 		<pdx-serializer>
-			<class-name>com.gemstone.gemfire.pdx.ReflectionBasedAutoSerializer</class-name>
+			<class-name>org.apache.geode.pdx.ReflectionBasedAutoSerializer</class-name>
 			<parameter name="classes">
 				<string>.*</string>
 			</parameter>
@@ -28,7 +28,7 @@
 			gateway-sender-ids="DC1">
 			<partition-attributes redundant-copies="1"
 				total-num-buckets="11" />
-			<cache-writer>
+	 <!--		<cache-writer>
 				<class-name>io.pivotal.event.writer.SessionWriter</class-name>
 				<parameter name="dataCenterId">
 					<string>DC1</string>
@@ -46,6 +46,7 @@
 					<string>DC1</string>
 				</parameter>
 			</cache-listener>
+           -->
 
 			<eviction-attributes>
 				<lru-heap-percentage action="local-destroy" />
