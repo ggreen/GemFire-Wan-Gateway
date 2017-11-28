@@ -55,7 +55,7 @@ gfsh -e "start locator --name=$LOCATOR_NM --port=$LOCATOR_PORT --dir=$WORK_DIR/$
 gfsh -e  "start server --name=$CS_NM --locators=$LOCATOR_HOST[$LOCATOR_PORT] --dir=$WORK_DIR/$CS_NM --use-cluster-configuration=true --server-port=$CS_PORT --J=-Dgemfire.tcp-port=$CS_TCP_PORT --J=-Dgemfire.membership-port-range=$CS_MEMBERSHIP_PORT_RANGE "
 
 # Create Gateway
-gfsh -e ="connect --locator=$LOCATOR_HOST[$LOCATOR_PORT]" -e "create gateway-receiver" -e "create gateway-sender --id=sender_to_$REMOTE_DISTRIBUTED_ID --remote-distributed-system-id=$REMOTE_DISTRIBUTED_ID --parallel=true "
+gfsh -e ="connect --locator=$LOCATOR_HOST[$LOCATOR_PORT]" -e "create gateway-receiver" -e "create gateway-sender --id=sender_to_$REMOTE_DISTRIBUTED_ID --remote-distributed-system-id=$REMOTE_DISTRIBUTED_ID --parallel=true --disk-store-name=DEFAULT --enable-persistence=true"
 
 # Create Regions
 gfsh -e ="connect --locator=$LOCATOR_HOST[$LOCATOR_PORT]" -e "create region --name=test --type=PARTITION_REDUNDANT_PERSISTENT --gateway-sender-id=sender_to_$REMOTE_DISTRIBUTED_ID"
